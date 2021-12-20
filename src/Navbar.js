@@ -9,7 +9,7 @@ const NavBar = () => {
   const lastDay = (toDay.getFullYear()) + '-' + (toDay.getMonth() + 1 ) + '-' + (toDay.getDate());
   return(
     <header style={{ 
-        backgroundColor:'rgb(67, 105, 178)',
+        backgroundColor:'rgb(226, 77, 120)',
         height: '5rem',
         margin: '0',
         display: 'flex',
@@ -19,7 +19,7 @@ const NavBar = () => {
         }}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <NavLink to="/">
-            <img src={BACK} alt='back' />
+            <img src={BACK} alt='back' style={{ cursor: 'pointer'}}/>
           </NavLink>
           <span style={{ fontWeight: '700' }}>{lastDay}</span>
         </div>
