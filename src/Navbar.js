@@ -8,16 +8,24 @@ const NavBar = () => {
   const toDay = new Date();
   const lastDay = (toDay.getFullYear()) + '-' + (toDay.getMonth() + 1 ) + '-' + (toDay.getDate());
   return(
-    <header style={{ backgroundColor:'rgb(237, 85, 139)' }}>
-        <div>
+    <header style={{ 
+        backgroundColor:'rgb(67, 105, 178)',
+        height: '5rem',
+        margin: '0',
+        display: 'flex',
+        alignItems: 'center',
+        fontFamily: 'Lato, sans-serif',
+        color: '#fff'   
+        }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
           <NavLink to="/">
             <img src={BACK} alt='back' />
           </NavLink>
-          <span>{lastDay}</span>
+          <span style={{ fontWeight: '700' }}>{lastDay}</span>
         </div>
-        <span>Tunisia national picture</span>
-        <img src={MICRO} alt='microphone'/>
-        <img src={SETTING} alt='setting' />
+        <span style={{ margin: '0 12.5%', color: '#fff' }}>Tunisia national picture</span>
+        <img src={MICRO} alt='microphone' style={{ width: '5%',marginRight: '7.5%' }}/>
+        <img src={SETTING} alt='setting' style={{ width: '5%', marginRight: '2.5%'}}/>
     </header> 
   );
 }
