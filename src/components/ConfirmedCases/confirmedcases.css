@@ -1,4 +1,4 @@
-.home-page {
+.confirmed-cases-page {
   font-family: Gill, sans-serif;
   color: white;
   font-size: 30px;
@@ -29,42 +29,32 @@
   align-items: start;
 }
 
-.key-indicators {
+.indicator-breakdown {
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 50% 50% 50% 50%;
 }
 
-.card {
+.confirmed-case-item {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  background-image: url(../../assets/images/map.png);
-  background-position: 15% 40%;
-  background-size: 40% 60%;
-  background-repeat: no-repeat;
+  align-items: center;
 }
 
-.confirmed-case {
+.total-cases {
   grid-row: 1 / 1 span;
-  grid-column: 1 / 1 span;
   background-color: rgb(220, 79, 130);
 }
 
-.deaths {
-  grid-row: 1 / 1 span;
-  grid-column: 2 / 1 span;
+.yesterday-total-cases {
+  grid-row: 2 / 1 span;
   background-color: rgb(208, 74, 121);
 }
 
-.recovery {
-  grid-row: 2 / 1 span;
-  grid-column: 1 / 1 span;
-  background-color: rgb(208, 74, 121);
-}
-
-.open-cases {
-  grid-row: 2 / 1 span;
-  grid-column: 2 / 2 span;
+.today-vs-yesterday-confirmed {
+  grid-row: 3 / 1 span;
   background-color: rgb(220, 79, 130);
+}
+
+.growing-cases {
+  grid-row: 4 / 1 span;
+  background-color: rgb(208, 74, 121);
 }

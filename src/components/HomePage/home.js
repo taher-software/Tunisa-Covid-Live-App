@@ -74,7 +74,7 @@ const HomePage = () => {
             <span>{confirmedCases}</span>
           </p>
         </NavLink>
-        <div>
+        <div className="card deaths">
           <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
           <p style={{
             width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%', display: 'flex', flexDirection: 'column',

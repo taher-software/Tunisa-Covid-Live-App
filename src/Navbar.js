@@ -6,7 +6,7 @@ import SETTING from './assets/images/settings.png';
 
 const NavBar = () => {
   const toDay = new Date();
-  const lastDay = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-${toDay.getDate()}`;
+  const lastDay = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-${toDay.getDate() - 1}`;
   return (
     <header style={{
       backgroundColor: 'rgb(226, 77, 120)',

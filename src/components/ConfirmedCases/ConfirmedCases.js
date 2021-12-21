@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import MAP from '../../assets/images/map.png';
 import FLECHE from '../../assets/images/fleche.png';
-import './home.css';
+import './confirmedcases.css';
 
 const ConfirmedCases = () => {
   const toDay = new Date();
@@ -11,16 +11,16 @@ const ConfirmedCases = () => {
   let updateData = useSelector((state) => state.latest);
   let dayBeforeData = useSelector((state) => state.dayBefore);
   let growingRate = 1.2;
+  let totalConfirmedCases = 20;
   let confirmedCases = 20;
-  let deaths = 115;
-  let recovered = 30;
-  let openCases = 15;
+  let yesterdayTotalCases = 12;
+  let todayVsYesterday = 0.5;
   if (Object.keys(updateData).length > 0) {
     updateData = updateData.dates[lastDay].countries.Tunisia;
+    todayVsYesterday = Math.round(updateData.today_vs_yesterday_confirmed);
+    yesterdayTotalCases = updateData.yesterday_confirmed;
     confirmedCases = updateData.today_new_confirmed;
-    deaths = updateData.today_new_deaths;
-    recovered = updateData.today_new_recovered;
-    openCases = updateData.today_new_open_cases;
+    totalConfirmedCases = updateData.today_confirmed;
     if (Object.keys(dayBeforeData).length > 0) {
       dayBeforeData = dayBeforeData.dates[previousDay].countries.Tunisia;
       const confirmedCasesDayBefore = dayBeforeData.today_new_confirmed;
@@ -29,15 +29,15 @@ const ConfirmedCases = () => {
     }
   }
   const adjustHeight = () => {
-    const home = document.querySelector('.home-page').offsetHeight;
+    const home = document.querySelector('.confirmed-cases-page').offsetHeight;
     const titleHeight = document.querySelector('.title-board').offsetHeight;
     const subtitleHeight = document.querySelector('.sub-title').offsetHeight;
-    const indicators = document.querySelector('.key-indicators');
+    const indicators = document.querySelector('.indicator-breakdown');
     indicators.style.height = `${home - titleHeight - subtitleHeight}px`;
   };
   useEffect(() => adjustHeight(), []);
   return (
-    <div className="home-page">
+    <div className="confirmed-cases-page">
       <div className="title-board">
         <div className="map">
           <img src={MAP} alt="tunisia-map" style={{ width: '25%', height: '80%' }} />
@@ -60,50 +60,76 @@ const ConfirmedCases = () => {
           backgroundColor: 'rgb(226, 77, 120)', fontSize: '18px', margin: '0 ', padding: '2.5% 0 2.5% 2.5%',
         }}
       >
-        CONFIRMED CASES BREAKDOWN -
+        CONFIRMED CASES BREAKDOWN
         {' '}
         {lastDay}
       </p>
-      <div className="key-indicators">
-        <div className=" card confirmed-case">
-          <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
+      <div className="indicator-breakdown">
+        <div className="confirmed-case-item total-cases">
           <p style={{
-            width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%', display: 'flex', flexDirection: 'column',
+            fontWeight: '700', fontSize: '18px', margin: '0 20% 0 5%', width: '190px',
           }}
           >
-            NEW CASES
-            <span>{confirmedCases}</span>
+            Total Cases
           </p>
+          <span style={{
+            marginRight: '8%', fontSize: '18px', fontWeight: '700', width: '116px',
+          }}
+          >
+            {totalConfirmedCases}
+            {' '}
+            cases
+          </span>
+          <img src={FLECHE} alt="back icone" style={{ marginRight: '2.5%' }} />
         </div>
-        <div className=" card deaths">
-          <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
+        <div className=" confirmed-case-item  yesterday-total-cases">
           <p style={{
-            width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%', display: 'flex', flexDirection: 'column',
+            fontWeight: '700', fontSize: '18px', margin: '0 20% 0 5%', width: '190px',
           }}
           >
-            NEW DEATHS
-            <span>{deaths}</span>
+            Yesterday Total Cases
           </p>
+          <span style={{
+            marginRight: '8%', fontSize: '18px', fontWeight: '700', width: '116px',
+          }}
+          >
+            {yesterdayTotalCases}
+            {' '}
+            cases
+          </span>
+          <img src={FLECHE} alt="back icone" style={{ marginRight: '2.5%' }} />
         </div>
-        <div className=" card recovery">
-          <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
+        <div className=" confirmed-case-item today-vs-yesterday-confirmed">
           <p style={{
-            width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%', display: 'flex', flexDirection: 'column',
+            fontWeight: '700', fontSize: '18px', margin: '0 20% 0 5%', width: '190px',
           }}
           >
-            NEW RECOVERED
-            <span>{recovered}</span>
+            Today Vs Yesterday New Cases
           </p>
+          <span style={{
+            marginRight: '8%', fontSize: '18px', fontWeight: '700', width: '116px',
+          }}
+          >
+            {todayVsYesterday}
+          </span>
+          <img src={FLECHE} alt="back icone" style={{ marginRight: '2.5%' }} />
         </div>
-        <div className=" card open-cases">
-          <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
+        <div className=" confirmed-case-item growing-cases">
           <p style={{
-            width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%', display: 'flex', flexDirection: 'column',
+            fontWeight: '700', fontSize: '18px', margin: '0 20% 0 5%', width: '190px',
           }}
           >
-            NEW OPEN CASES
-            <span>{openCases}</span>
+            Daily Growing Rate
           </p>
+          <span style={{
+            marginRight: '8%', fontSize: '18px', fontWeight: '700', width: '116px',
+          }}
+          >
+            {growingRate}
+            {' '}
+            %
+          </span>
+          <img src={FLECHE} alt="back icone" style={{ marginRight: '2.5%' }} />
         </div>
 
       </div>
