@@ -1,10 +1,11 @@
-.home-page{
-  font-family: 'Gill, sans serif';
+.home-page {
+  font-family: Gill, sans-serif;
   color: white;
   font-size: 30px;
   height: 100vh;
 }
-.title-board{
+
+.title-board {
   display: grid;
   grid-template-columns: 50% 50%;
   background-color: rgb(247, 90, 146);
@@ -13,7 +14,7 @@
 
 .map {
   grid-column: 1/ span 1;
-  display: flex; 
+  display: flex;
   justify-content: flex-end;
   align-items: center;
 }
@@ -28,7 +29,7 @@
   align-items: start;
 }
 
-.key-indicators{
+.key-indicators {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 50% 50%;
@@ -65,5 +66,5 @@
 .open-cases {
   grid-row: 2 / 1 span;
   grid-column: 2 / 2 span;
-  background-color: rgb(220, 79, 130);  
+  background-color: rgb(220, 79, 130);
 }
