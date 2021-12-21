@@ -6,12 +6,12 @@ const fetchData = (date) => {
   return fetch(url);
 };
 
-const lastDayNumbers = (lastDay) => (dispatch) => {
+const dayBeforeNumbers = (dayBefore) => (dispatch) => {
   dispatch(loadingStart);
-  fetchData(lastDay)
+  fetchData(dayBefore)
     .then((res) => res.json())
     .then((res) => dispatch(update(res)))
     .catch((error) => dispatch(manageFailure(error.message)));
 };
 
-export default lastDayNumbers;
+export default dayBeforeNumbers;

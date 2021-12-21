@@ -1,6 +1,6 @@
-import { START, FAILURE, LASTUPDATE } from '../actions/actions';
+import { START, FAILURE, DAYBEFOREUPDATE } from '../actions/actions';
 
-const updateReducer = (state = {}, action) => {
+const dayBeforeReducer = (state = {}, action) => {
   switch (action.type) {
     case START:
       return {
@@ -13,7 +13,7 @@ const updateReducer = (state = {}, action) => {
         loading: false,
         error: action.payload,
       };
-    case LASTUPDATE:
+    case DAYBEFOREUPDATE:
       return {
         ...state,
         ...action.payload,
@@ -24,4 +24,4 @@ const updateReducer = (state = {}, action) => {
   }
 };
 
-export default updateReducer;
+export default dayBeforeReducer;

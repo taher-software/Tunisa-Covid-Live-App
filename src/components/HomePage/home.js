@@ -1,14 +1,33 @@
 import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import MAP from '../../assets/images/map.png';
 import FLECHE from '../../assets/images/fleche.png';
 import './home.css';
 
 const HomePage = () => {
-  const growingRate = 1.2;
-  const confirmedCases = 356;
-  const deaths = 115;
-  const recovered = 30;
-  const openCases = 15;
+  const toDay = new Date();
+  const lastDay = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-${toDay.getDate() - 1}`;
+  const previousDay = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-${toDay.getDate() - 2}`;
+  let updateData = useSelector((state) => state.latest);
+  let dayBeforeData = useSelector((state) => state.dayBefore);
+  let growingRate = 1.2;
+  let confirmedCases = 20;
+  let deaths = 115;
+  let recovered = 30;
+  let openCases = 15;
+  if (Object.keys(updateData).length > 0) {
+    updateData = updateData.dates[lastDay].countries.Tunisia;
+    confirmedCases = updateData.today_new_confirmed;
+    deaths = updateData.today_new_deaths;
+    recovered = updateData.today_new_recovered;
+    openCases = updateData.today_new_open_cases;
+    if (Object.keys(dayBeforeData).length > 0) {
+      dayBeforeData = dayBeforeData.dates[previousDay].countries.Tunisia;
+      const confirmedCasesDayBefore = dayBeforeData.today_new_confirmed;
+      growingRate = ((confirmedCases - confirmedCasesDayBefore) / confirmedCasesDayBefore) * 100;
+      growingRate = Math.floor(growingRate);
+    }
+  }
   const adjustHeight = () => {
     const home = document.querySelector('.home-page').offsetHeight;
     const titleHeight = document.querySelector('.title-board').offsetHeight;
@@ -28,7 +47,7 @@ const HomePage = () => {
           {' '}
           <span style={{ fontWeight: 'normal', fontSize: '16px' }}>
             {' '}
-            {growingRate > 0 ? '+' : '-'}
+            {growingRate > 0 ? '+' : ''}
             {growingRate}
             % confirmed cases
             {' '}
@@ -47,7 +66,7 @@ const HomePage = () => {
         <div className=" card confirmed-case">
           <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
           <p style={{
-            width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%',
+            width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%', display: 'flex', flexDirection: 'column',
           }}
           >
             NEW CASES
@@ -57,7 +76,7 @@ const HomePage = () => {
         <div className=" card deaths">
           <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
           <p style={{
-            width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%',
+            width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%', display: 'flex', flexDirection: 'column',
           }}
           >
             NEW DEATHS
@@ -67,7 +86,7 @@ const HomePage = () => {
         <div className=" card recovery">
           <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
           <p style={{
-            width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%',
+            width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%', display: 'flex', flexDirection: 'column',
           }}
           >
             NEW RECOVERED
@@ -77,7 +96,7 @@ const HomePage = () => {
         <div className=" card open-cases">
           <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
           <p style={{
-            width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%',
+            width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%', display: 'flex', flexDirection: 'column',
           }}
           >
             NEW OPEN CASES
