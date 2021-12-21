@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import MAP from '../../assets/images/map.png';
 import FLECHE from '../../assets/images/fleche.png';
 import './home.css';
 
-const HomePage = () => {
+const ConfirmedCases = () => {
   const toDay = new Date();
   const lastDay = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-${toDay.getDate() - 1}`;
   const previousDay = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-${toDay.getDate() - 2}`;
@@ -61,10 +60,12 @@ const HomePage = () => {
           backgroundColor: 'rgb(226, 77, 120)', fontSize: '18px', margin: '0 ', padding: '2.5% 0 2.5% 2.5%',
         }}
       >
-        KEY INDICATORS
+        CONFIRMED CASES BREAKDOWN -
+        {' '}
+        {lastDay}
       </p>
       <div className="key-indicators">
-        <NavLink to="/ConfirmedCases" className=" card confirmed-case">
+        <div className=" card confirmed-case">
           <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
           <p style={{
             width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%', display: 'flex', flexDirection: 'column',
@@ -73,8 +74,8 @@ const HomePage = () => {
             NEW CASES
             <span>{confirmedCases}</span>
           </p>
-        </NavLink>
-        <div>
+        </div>
+        <div className=" card deaths">
           <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
           <p style={{
             width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%', display: 'flex', flexDirection: 'column',
@@ -109,4 +110,4 @@ const HomePage = () => {
     </div>
   );
 };
-export default HomePage;
+export default ConfirmedCases;
