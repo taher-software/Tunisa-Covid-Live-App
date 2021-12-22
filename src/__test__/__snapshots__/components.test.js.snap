@@ -1,11 +1,200 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`render correctly Homepage component should render with given state from redux store 1`] = `
+<div
+  className="home-page"
+>
+  <div
+    className="title-board"
+  >
+    <div
+      className="map"
+    >
+      <img
+        alt="tunisia-map"
+        src="map.png"
+        style={
+          Object {
+            "height": "80%",
+            "width": "25%",
+          }
+        }
+      />
+    </div>
+    <p
+      className="title-indicator"
+    >
+      Tunisia
+       
+      <span
+        style={
+          Object {
+            "fontSize": "16px",
+            "fontWeight": "normal",
+          }
+        }
+      >
+         
+        +
+        1.2
+        % confirmed cases
+         
+      </span>
+    </p>
+  </div>
+  <p
+    className="sub-title"
+    style={
+      Object {
+        "backgroundColor": "rgb(226, 77, 120)",
+        "fontSize": "18px",
+        "margin": "0 ",
+        "padding": "2.5% 0 2.5% 2.5%",
+      }
+    }
+  >
+    KEY INDICATORS
+  </p>
+  <div
+    className="key-indicators"
+  >
+    <a
+      aria-current={null}
+      className=" card confirmed-case"
+      href="/ConfirmedCases"
+      onClick={[Function]}
+    >
+      <img
+        alt="back icone"
+        src="fleche.png"
+        style={
+          Object {
+            "margin": "2.5% 5% 0 0",
+          }
+        }
+      />
+      <p
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "fontSize": "18px",
+            "fontWeight": "700",
+            "marginRight": "5%",
+            "textAlign": "end",
+            "width": "50%",
+          }
+        }
+      >
+        NEW CASES
+        <span>
+          20
+        </span>
+      </p>
+    </a>
+    <div
+      className="card deaths"
+    >
+      <img
+        alt="back icone"
+        src="fleche.png"
+        style={
+          Object {
+            "margin": "2.5% 5% 0 0",
+          }
+        }
+      />
+      <p
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "fontSize": "18px",
+            "fontWeight": "700",
+            "marginRight": "5%",
+            "textAlign": "end",
+            "width": "50%",
+          }
+        }
+      >
+        NEW DEATHS
+        <span>
+          115
+        </span>
+      </p>
+    </div>
+    <div
+      className=" card recovery"
+    >
+      <img
+        alt="back icone"
+        src="fleche.png"
+        style={
+          Object {
+            "margin": "2.5% 5% 0 0",
+          }
+        }
+      />
+      <p
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "fontSize": "18px",
+            "fontWeight": "700",
+            "marginRight": "5%",
+            "textAlign": "end",
+            "width": "50%",
+          }
+        }
+      >
+        NEW RECOVERED
+        <span>
+          30
+        </span>
+      </p>
+    </div>
+    <div
+      className=" card open-cases"
+    >
+      <img
+        alt="back icone"
+        src="fleche.png"
+        style={
+          Object {
+            "margin": "2.5% 5% 0 0",
+          }
+        }
+      />
+      <p
+        style={
+          Object {
+            "display": "flex",
+            "flexDirection": "column",
+            "fontSize": "18px",
+            "fontWeight": "700",
+            "marginRight": "5%",
+            "textAlign": "end",
+            "width": "50%",
+          }
+        }
+      >
+        NEW OPEN CASES
+        <span>
+          15
+        </span>
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`render correctly navbar 1`] = `
 <header
   style={
     Object {
       "alignItems": "center",
-      "backgroundColor": "rgb(67, 105, 178)",
+      "backgroundColor": "rgb(226, 77, 120)",
       "color": "#fff",
       "display": "flex",
       "fontFamily": "Lato, sans-serif",
@@ -32,6 +221,11 @@ exports[`render correctly navbar 1`] = `
       <img
         alt="back"
         src="back.png"
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
       />
     </a>
     <span
