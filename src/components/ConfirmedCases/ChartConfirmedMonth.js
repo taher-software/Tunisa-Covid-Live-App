@@ -1,15 +1,27 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
 const MonthConfirmedChart = () => {
+  const dataOfMonthState = useSelector((state) => state.historical);
+  let daysOfMonth = [];
+  const newCasesData = [];
+  if (Object.keys(dataOfMonthState).length > 0) {
+    const dataOfMonth = dataOfMonthState.dates;
+    daysOfMonth = Array.from(Object.keys(dataOfMonth));
+    daysOfMonth.forEach((dayDate) => {
+      const dayData = dataOfMonth[dayDate].countries.Tunisia;
+      newCasesData.push(parseInt(dayData.today_new_confirmed, 10));
+    });
+  }
   const months = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'];
   const today = new Date();
   const month = today.getMonth();
   const data = {
-    labels: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'],
+    labels: daysOfMonth,
     datasets: [
       {
         label: `${months[month]} New Cases`,
@@ -18,7 +30,7 @@ const MonthConfirmedChart = () => {
         backgroundColor: 'rgba(75,192,192,1)',
         borderColor: 'rgba(0,0,0,1)',
         borderWidth: 2,
-        data: [65, 59, 80, 81, 56],
+        data: newCasesData,
       },
     ],
   };
@@ -38,16 +50,6 @@ const MonthConfirmedChart = () => {
           },
           responsive: true,
           maintainAspectRatio: false,
-          scales: {
-            x: {
-              title: {
-                display: true,
-                text: 'Days Of Month',
-                align: 'end',
-                color: 'rgb(75, 192, 192)',
-              },
-            },
-          },
         }}
       />
     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import MAP from '../../assets/images/map.png';
@@ -11,22 +11,30 @@ const HomePage = () => {
   const previousDay = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-${toDay.getDate() - 2}`;
   let updateData = useSelector((state) => state.latest);
   let dayBeforeData = useSelector((state) => state.dayBefore);
-  let growingRate = 1.2;
-  let confirmedCases = 20;
+  const [growingRate, setGrowingrate] = useState(undefined);
+  const [confirmedCases, setConfirmedCases] = useState(-1);
+  const [render, setRender] = useState(0);
+  // const [confirmedCasesChanged, ChangeConfirmedCase] = useState(true);
+  // const [growingRateChanged, ChangeGrowingRate] = useState(true);
   let deaths = 115;
   let recovered = 30;
   let openCases = 15;
   if (Object.keys(updateData).length > 0) {
     updateData = updateData.dates[lastDay].countries.Tunisia;
-    confirmedCases = updateData.today_new_confirmed;
+    if (confirmedCases < 0) {
+      setConfirmedCases(updateData.today_new_confirmed);
+    }
     deaths = updateData.today_new_deaths;
     recovered = updateData.today_new_recovered;
     openCases = updateData.today_new_open_cases;
     if (Object.keys(dayBeforeData).length > 0) {
-      dayBeforeData = dayBeforeData.dates[previousDay].countries.Tunisia;
-      const confirmedCasesDayBefore = dayBeforeData.today_new_confirmed;
-      growingRate = ((confirmedCases - confirmedCasesDayBefore) / confirmedCasesDayBefore) * 100;
-      growingRate = Math.floor(growingRate);
+      if ((growingRate === undefined) || (render < 2)) {
+        dayBeforeData = dayBeforeData.dates[previousDay].countries.Tunisia;
+        const confirmedCasesDayBefore = dayBeforeData.today_new_confirmed;
+        const rate = ((confirmedCases - confirmedCasesDayBefore) / confirmedCasesDayBefore) * 100;
+        setGrowingrate(Math.floor(rate));
+        setRender(render + 1);
+      }
     }
   }
   const adjustHeight = () => {
@@ -36,7 +44,29 @@ const HomePage = () => {
     const indicators = document.querySelector('.key-indicators');
     indicators.style.height = `${home - titleHeight - subtitleHeight}px`;
   };
+  const situationALertColor = (growingRate, confirmedCases) => {
+    const alertIcone = document.querySelector('.title-board');
+    if (Object.keys(updateData).length > 0) {
+      if ((growingRate > 20) || (confirmedCases > 200)) {
+        alertIcone.style.backgroundColor = 'red';
+      } else if (growingRate > 5) {
+        alertIcone.style.backgroundColor = 'orange';
+      } else {
+        alertIcone.style.backgroundColor = 'green';
+      }
+    }
+  };
+  const situationNeutralColor = () => {
+    const alertIcone = document.querySelector('.title-board');
+    alertIcone.style.backgroundColor = 'rgb(247, 90, 146)';
+  };
   useEffect(() => adjustHeight(), []);
+  useEffect(() => {
+    setInterval(situationALertColor, 1000, growingRate, confirmedCases);
+    return () => situationNeutralColor();
+  },
+  [render]);
+  useEffect(() => setInterval(situationNeutralColor, 3000, growingRate, confirmedCases), [render]);
   return (
     <div className="home-page">
       <div className="title-board">
@@ -46,7 +76,7 @@ const HomePage = () => {
         <p className="title-indicator">
           Tunisia
           {' '}
-          <span style={{ fontWeight: 'normal', fontSize: '16px' }}>
+          <span style={{ fontWeight: 'normal', fontSize: '16px' }} className="alert-icone">
             {' '}
             {growingRate > 0 ? '+' : ''}
             {growingRate}

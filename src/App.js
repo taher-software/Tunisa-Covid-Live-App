@@ -11,7 +11,7 @@ import ConfirmedCases from './components/ConfirmedCases/ConfirmedCases';
 import './App.css';
 import lastDayNumbers from './redux/LATEST/thunk/thunk';
 import dayBeforeNumbers from './redux/DAYBEFORE/thunk/thunk';
-import { updateHistorical } from './redux/HISTORICalMONTHDATA/actions/actions';
+import getHistoricalData from './redux/HISTORICalMONTHDATA/thunk/thunk';
 
 function App() {
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ function App() {
   const firstDayOfMonth = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-1`;
   useEffect(() => dispatch((lastDayNumbers(lastDay))), []);
   useEffect(() => dispatch((dayBeforeNumbers(previousDay))), []);
-  useEffect(() => dispatch(updateHistorical(firstDayOfMonth, lastDay)), []);
+  useEffect(() => dispatch(getHistoricalData(firstDayOfMonth, lastDay)), []);
   return (
     <Router>
       <NavBar />
