@@ -10,6 +10,7 @@ import HomePage from './components/HomePage/home';
 import ConfirmedCases from './components/ConfirmedCases/ConfirmedCases';
 import DeathsCases from './components/Deaths/Deaths';
 import RecoveredCases from './components/Recovered/Recovered';
+import OpenCases from './components/OpenCases/OpenCases';
 import './App.css';
 import lastDayNumbers from './redux/LATEST/thunk/thunk';
 import dayBeforeNumbers from './redux/DAYBEFORE/thunk/thunk';
@@ -32,6 +33,7 @@ function App() {
         <Route path="/ConfirmedCases"><ConfirmedCases /></Route>
         <Route path="/Deaths"><DeathsCases /></Route>
         <Route path="/Recovered"><RecoveredCases /></Route>
+        <Route path="/OpenCases"><OpenCases /></Route>
       </Switch>
     </Router>
   );

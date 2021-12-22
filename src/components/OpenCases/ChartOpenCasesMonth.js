@@ -4,7 +4,7 @@ import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
-const MonthRecoveredChart = () => {
+const MonthOpenCasesChart = () => {
   const dataOfMonthState = useSelector((state) => state.historical);
   let daysOfMonth = [];
   const newCasesData = [];
@@ -55,4 +55,4 @@ const MonthRecoveredChart = () => {
     </div>
   );
 };
-export default MonthRecoveredChart;
+export default MonthOpenCasesChart;

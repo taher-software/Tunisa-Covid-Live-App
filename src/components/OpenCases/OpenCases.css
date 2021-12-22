@@ -1,0 +1,36 @@
+.confirmed-cases-page {
+  font-family: Gill, sans-serif;
+  color: white;
+  font-size: 30px;
+  height: 65vh;
+}
+
+.indicator-breakdown {
+  display: grid;
+  grid-template-rows: 50% 50% 50% 50%;
+}
+
+.confirmed-case-item {
+  display: flex;
+  align-items: center;
+}
+
+.total-cases {
+  grid-row: 1 / 1 span;
+  background-color: rgb(220, 79, 130);
+}
+
+.yesterday-total-cases {
+  grid-row: 2 / 1 span;
+  background-color: rgb(208, 74, 121);
+}
+
+.today-vs-yesterday-confirmed {
+  grid-row: 3 / 1 span;
+  background-color: rgb(220, 79, 130);
+}
+
+.growing-cases {
+  grid-row: 4 / 1 span;
+  background-color: rgb(208, 74, 121);
+}
