@@ -2,31 +2,7 @@
   font-family: Gill, sans-serif;
   color: white;
   font-size: 30px;
-  height: 100vh;
-}
-
-.title-board {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  background-color: rgb(247, 90, 146);
-  font-weight: 700;
-}
-
-.map {
-  grid-column: 1/ span 1;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.title-indicator {
-  grid-column: 2/ span 1;
-  text-align: center;
-  margin: 0 0 0 10%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: start;
+  height: 65vh;
 }
 
 .indicator-breakdown {

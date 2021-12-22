@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import MAP from '../../assets/images/map.png';
 import FLECHE from '../../assets/images/fleche.png';
 import './confirmedcases.css';
+import MonthConfirmedChart from './ChartConfirmedMonth';
 
 const ConfirmedCases = () => {
   const toDay = new Date();
@@ -30,30 +30,15 @@ const ConfirmedCases = () => {
   }
   const adjustHeight = () => {
     const home = document.querySelector('.confirmed-cases-page').offsetHeight;
-    const titleHeight = document.querySelector('.title-board').offsetHeight;
+    const chartHeight = 220;
     const subtitleHeight = document.querySelector('.sub-title').offsetHeight;
     const indicators = document.querySelector('.indicator-breakdown');
-    indicators.style.height = `${home - titleHeight - subtitleHeight}px`;
+    indicators.style.height = `${home - chartHeight - subtitleHeight}px`;
   };
   useEffect(() => adjustHeight(), []);
   return (
     <div className="confirmed-cases-page">
-      <div className="title-board">
-        <div className="map">
-          <img src={MAP} alt="tunisia-map" style={{ width: '25%', height: '80%' }} />
-        </div>
-        <p className="title-indicator">
-          Tunisia
-          {' '}
-          <span style={{ fontWeight: 'normal', fontSize: '16px' }}>
-            {' '}
-            {growingRate > 0 ? '+' : ''}
-            {growingRate}
-            % confirmed cases
-            {' '}
-          </span>
-        </p>
-      </div>
+      <MonthConfirmedChart />
       <p
         className="sub-title"
         style={{
