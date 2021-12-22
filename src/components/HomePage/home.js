@@ -112,7 +112,7 @@ const HomePage = () => {
             <span>{deaths}</span>
           </p>
         </NavLink>
-        <div className=" card recovery">
+        <NavLink to="/Recovered" className=" card recovery">
           <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
           <p style={{
             width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%', display: 'flex', flexDirection: 'column',
@@ -121,7 +121,7 @@ const HomePage = () => {
             NEW RECOVERED
             <span>{recovered}</span>
           </p>
-        </div>
+        </NavLink>
         <div className=" card open-cases">
           <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
           <p style={{

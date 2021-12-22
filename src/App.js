@@ -9,6 +9,7 @@ import NavBar from './Navbar';
 import HomePage from './components/HomePage/home';
 import ConfirmedCases from './components/ConfirmedCases/ConfirmedCases';
 import DeathsCases from './components/Deaths/Deaths';
+import RecoveredCases from './components/Recovered/Recovered';
 import './App.css';
 import lastDayNumbers from './redux/LATEST/thunk/thunk';
 import dayBeforeNumbers from './redux/DAYBEFORE/thunk/thunk';
@@ -30,6 +31,7 @@ function App() {
         <Route exact path="/"><HomePage /></Route>
         <Route path="/ConfirmedCases"><ConfirmedCases /></Route>
         <Route path="/Deaths"><DeathsCases /></Route>
+        <Route path="/Recovered"><RecoveredCases /></Route>
       </Switch>
     </Router>
   );
