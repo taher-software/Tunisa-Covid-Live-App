@@ -27,6 +27,7 @@ exports[`render correctly Homepage component should render with given state from
       Tunisia
        
       <span
+        className="alert-icone"
         style={
           Object {
             "fontSize": "16px",
@@ -35,8 +36,7 @@ exports[`render correctly Homepage component should render with given state from
         }
       >
          
-        +
-        1.2
+        
         % confirmed cases
          
       </span>
@@ -88,7 +88,7 @@ exports[`render correctly Homepage component should render with given state from
       >
         NEW CASES
         <span>
-          20
+          -1
         </span>
       </p>
     </a>
@@ -235,7 +235,7 @@ exports[`render correctly navbar 1`] = `
         }
       }
     >
-      2021-12-20
+      2021-12-21
     </span>
   </div>
   <span

@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import NavBar from './Navbar';
 import HomePage from './components/HomePage/home';
 import ConfirmedCases from './components/ConfirmedCases/ConfirmedCases';
+import DeathsCases from './components/Deaths/Deaths';
 import './App.css';
 import lastDayNumbers from './redux/LATEST/thunk/thunk';
 import dayBeforeNumbers from './redux/DAYBEFORE/thunk/thunk';
@@ -28,6 +29,7 @@ function App() {
       <Switch>
         <Route exact path="/"><HomePage /></Route>
         <Route path="/ConfirmedCases"><ConfirmedCases /></Route>
+        <Route path="/Deaths"><DeathsCases /></Route>
       </Switch>
     </Router>
   );

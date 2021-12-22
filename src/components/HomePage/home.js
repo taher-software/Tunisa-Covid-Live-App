@@ -14,8 +14,6 @@ const HomePage = () => {
   const [growingRate, setGrowingrate] = useState(undefined);
   const [confirmedCases, setConfirmedCases] = useState(-1);
   const [render, setRender] = useState(0);
-  // const [confirmedCasesChanged, ChangeConfirmedCase] = useState(true);
-  // const [growingRateChanged, ChangeGrowingRate] = useState(true);
   let deaths = 115;
   let recovered = 30;
   let openCases = 15;
@@ -66,7 +64,7 @@ const HomePage = () => {
     return () => situationNeutralColor();
   },
   [render]);
-  useEffect(() => setInterval(situationNeutralColor, 3000, growingRate, confirmedCases), [render]);
+  useEffect(() => setInterval(situationNeutralColor, 4000, growingRate, confirmedCases), [render]);
   return (
     <div className="home-page">
       <div className="title-board">
@@ -104,7 +102,7 @@ const HomePage = () => {
             <span>{confirmedCases}</span>
           </p>
         </NavLink>
-        <div className="card deaths">
+        <NavLink to="/Deaths" className="card deaths">
           <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
           <p style={{
             width: '50%', fontWeight: '700', fontSize: '18px', textAlign: 'end', marginRight: '5%', display: 'flex', flexDirection: 'column',
@@ -113,7 +111,7 @@ const HomePage = () => {
             NEW DEATHS
             <span>{deaths}</span>
           </p>
-        </div>
+        </NavLink>
         <div className=" card recovery">
           <img src={FLECHE} style={{ margin: '2.5% 5% 0 0' }} alt="back icone" />
           <p style={{
