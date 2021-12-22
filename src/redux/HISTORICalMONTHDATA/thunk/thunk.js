@@ -6,7 +6,7 @@ const fetchData = (startDate, endDate) => {
   return fetch(url);
 };
 
-const getHistoricalData= (startDate, endDate) => (dispatch) => {
+const getHistoricalData = (startDate, endDate) => (dispatch) => {
   dispatch(loadingStart);
   fetchData(startDate, endDate)
     .then((res) => res.json())

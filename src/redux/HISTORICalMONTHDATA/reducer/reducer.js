@@ -13,7 +13,7 @@ const historicalReducer = (state = {}, action) => {
         loading: false,
         error: action.payload,
       };
-    case DAYBEFOREUPDATE:
+    case HISTORICAL:
       return {
         ...state,
         ...action.payload,
