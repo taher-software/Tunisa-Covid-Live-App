@@ -13,7 +13,7 @@ const MonthDeathChart = () => {
     daysOfMonth = Array.from(Object.keys(dataOfMonth));
     daysOfMonth.forEach((dayDate) => {
       const dayData = dataOfMonth[dayDate].countries.Tunisia;
-      newCasesData.push(parseInt(dayData.today_new_confirmed, 10));
+      newCasesData.push(parseInt(dayData.today_new_deaths, 10));
     });
   }
   const months = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -24,7 +24,7 @@ const MonthDeathChart = () => {
     labels: daysOfMonth,
     datasets: [
       {
-        label: `${months[month]} New Cases`,
+        label: `${months[month]} New Deaths`,
         fill: false,
         lineTension: 0.5,
         backgroundColor: 'rgba(75,192,192,1)',
