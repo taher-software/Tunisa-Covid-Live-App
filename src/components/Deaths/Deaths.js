@@ -24,7 +24,7 @@ const DeathsCases = () => {
     if (Object.keys(dayBeforeData).length > 0) {
       dayBeforeData = dayBeforeData.dates[previousDay].countries.Tunisia;
       const newDeathsDayBefore = dayBeforeData.today_new_deaths;
-      growingRate = ((newDeaths - newDeathsDayBefore) / newDeaths) * 100;
+      growingRate = ((newDeaths - newDeathsDayBefore) / Math.max(1, newDeathsDayBefore)) * 100;
       growingRate = Math.floor(growingRate);
     }
   }

@@ -24,7 +24,9 @@ const ConfirmedCases = () => {
     if (Object.keys(dayBeforeData).length > 0) {
       dayBeforeData = dayBeforeData.dates[previousDay].countries.Tunisia;
       const confirmedCasesDayBefore = dayBeforeData.today_new_confirmed;
-      growingRate = ((confirmedCases - confirmedCasesDayBefore) / confirmedCasesDayBefore) * 100;
+      growingRate = (
+        (confirmedCases - confirmedCasesDayBefore) / Math.max(1, confirmedCasesDayBefore)
+      ) * 100;
       growingRate = Math.floor(growingRate);
     }
   }

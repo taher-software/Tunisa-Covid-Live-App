@@ -24,7 +24,9 @@ const RecoveredCases = () => {
     if (Object.keys(dayBeforeData).length > 0) {
       dayBeforeData = dayBeforeData.dates[previousDay].countries.Tunisia;
       const newRecoveredDayBefore = dayBeforeData.today_new_recovered;
-      growingRate = ((newRecovered - newRecoveredDayBefore) / Math.max(newRecovered, 1)) * 100;
+      growingRate = (
+        (newRecovered - newRecoveredDayBefore) / Math.max(newRecoveredDayBefore, 1)
+      ) * 100;
       growingRate = Math.floor(growingRate);
     }
   }
