@@ -11,20 +11,22 @@ const OpenCases = () => {
   let updateData = useSelector((state) => state.latest);
   let dayBeforeData = useSelector((state) => state.dayBefore);
   let growingRate = 1.2;
-  let totalRecovered = 20;
-  let newRecovered = 20;
-  let yesterdayTotalRecovered = 12;
+  let totalOpenCases = 20;
+  let newOpenCases = 20;
+  let yesterdayTotalOpenCases = 12;
   let todayVsYesterday = 0.5;
   if (Object.keys(updateData).length > 0) {
     updateData = updateData.dates[lastDay].countries.Tunisia;
-    todayVsYesterday = Math.round(updateData.today_vs_yesterday_recovered);
-    yesterdayTotalRecovered = updateData.yesterday_recovered;
-    newRecovered = updateData.today_new_recovered;
-    totalRecovered = updateData.today_recovered;
+    todayVsYesterday = Math.round(updateData.today_vs_yesterday_open_cases);
+    yesterdayTotalOpenCases = updateData.yesterday_open_cases;
+    newOpenCases = updateData.today_new_open_cases;
+    totalOpenCases = updateData.today_open_cases;
     if (Object.keys(dayBeforeData).length > 0) {
       dayBeforeData = dayBeforeData.dates[previousDay].countries.Tunisia;
-      const newRecoveredDayBefore = dayBeforeData.today_new_recovered;
-      growingRate = ((newRecovered - newRecoveredDayBefore) / Math.max(newRecovered, 1)) * 100;
+      const newOpenCasesDayBefore = dayBeforeData.today_new_open_cases;
+      growingRate = (
+        (newOpenCases - newOpenCasesDayBefore) / Math.max(newOpenCasesDayBefore, 1)
+      ) * 100;
       growingRate = Math.floor(growingRate);
     }
   }
@@ -45,7 +47,7 @@ const OpenCases = () => {
           backgroundColor: 'rgb(226, 77, 120)', fontSize: '18px', margin: '0 ', padding: '2.5% 0 2.5% 2.5%',
         }}
       >
-        RECOVERED BREAKDOWN
+        OPEN CASES BREAKDOWN
         {' '}
         {lastDay}
       </p>
@@ -55,13 +57,13 @@ const OpenCases = () => {
             fontWeight: '700', fontSize: '18px', margin: '0 20% 0 5%', width: '190px',
           }}
           >
-            Total Recovered
+            Total OPEN CASES
           </p>
           <span style={{
             marginRight: '8%', fontSize: '18px', fontWeight: '700', width: '116px',
           }}
           >
-            {totalRecovered}
+            {totalOpenCases}
             {' '}
             cases
           </span>
@@ -72,13 +74,13 @@ const OpenCases = () => {
             fontWeight: '700', fontSize: '18px', margin: '0 20% 0 5%', width: '190px',
           }}
           >
-            Yesterday Total Recovered
+            Yesterday Total Open Cases
           </p>
           <span style={{
             marginRight: '8%', fontSize: '18px', fontWeight: '700', width: '116px',
           }}
           >
-            {yesterdayTotalRecovered}
+            {yesterdayTotalOpenCases}
             {' '}
             cases
           </span>
@@ -89,7 +91,7 @@ const OpenCases = () => {
             fontWeight: '700', fontSize: '18px', margin: '0 20% 0 5%', width: '190px',
           }}
           >
-            Today Vs Yesterday New Recovered
+            Today Vs Yesterday New Open Cases
           </p>
           <span style={{
             marginRight: '8%', fontSize: '18px', fontWeight: '700', width: '116px',
@@ -104,7 +106,7 @@ const OpenCases = () => {
             fontWeight: '700', fontSize: '18px', margin: '0 20% 0 5%', width: '190px',
           }}
           >
-            New Recovered Daily Growing Rate
+            New Open Cases Daily Growing Rate
           </p>
           <span style={{
             marginRight: '8%', fontSize: '18px', fontWeight: '700', width: '116px',
