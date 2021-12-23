@@ -8,7 +8,7 @@ Therefore this app, can help us to protect each others and slow the spread od CO
 
 
 
-<img src='https://github.com/Taher-web-dev/Space-Travelers-Hub/blob/dev/src/assets/images/overview_animated.gif' alt='screenshot'/>
+<img src='./src/assets/images/covid app.gif' alt='screenshot'/>
 
 
 ## Built With
@@ -24,11 +24,6 @@ Therefore this app, can help us to protect each others and slow the spread od CO
 ## Live Demo
 
 [Live Site]()
-
-## Video Description
-
-[Video Link]()
-
 
 
 ## Getting Started
