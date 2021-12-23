@@ -8,7 +8,10 @@ Therefore this app, can help us to protect each others and slow the spread od CO
 
 
 
-<center> ![alt image](./src/assets/images/covid app.gif) </center>
+<p align="center">
+  <img src="https://github.com/Taher-web-dev/Tunisa-Covid-Live-App/blob/features/src/assets/images/covid%20app.gif">
+</p>
+
 
 
 ## Built With
