@@ -16,7 +16,7 @@ import lastDayNumbers from './redux/LATEST/thunk/thunk';
 import dayBeforeNumbers from './redux/DAYBEFORE/thunk/thunk';
 import getHistoricalData from './redux/HISTORICalMONTHDATA/thunk/thunk';
 
-function App() {
+const App = () => {
   const dispatch = useDispatch();
   const toDay = new Date();
   const lastDay = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-${toDay.getDate() - 1}`;
@@ -37,6 +37,6 @@ function App() {
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;
