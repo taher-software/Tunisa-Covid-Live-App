@@ -76,7 +76,7 @@ const HomePage = () => {
           {' '}
           <span style={{ fontWeight: 'normal', fontSize: '16px' }} className="alert-icone">
             {' '}
-            {growingRate > 0 ? '+' : ''}
+            {growingRate >= 0 ? '+' : ''}
             {growingRate}
             % confirmed cases
             {' '}

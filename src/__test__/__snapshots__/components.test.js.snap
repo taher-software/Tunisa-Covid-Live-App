@@ -92,8 +92,11 @@ exports[`render correctly Homepage component should render with given state from
         </span>
       </p>
     </a>
-    <div
+    <a
+      aria-current={null}
       className="card deaths"
+      href="/Deaths"
+      onClick={[Function]}
     >
       <img
         alt="back icone"
@@ -122,9 +125,12 @@ exports[`render correctly Homepage component should render with given state from
           115
         </span>
       </p>
-    </div>
-    <div
+    </a>
+    <a
+      aria-current={null}
       className=" card recovery"
+      href="/Recovered"
+      onClick={[Function]}
     >
       <img
         alt="back icone"
@@ -153,9 +159,12 @@ exports[`render correctly Homepage component should render with given state from
           30
         </span>
       </p>
-    </div>
-    <div
+    </a>
+    <a
+      aria-current={null}
       className=" card open-cases"
+      href="/OpenCases"
+      onClick={[Function]}
     >
       <img
         alt="back icone"
@@ -184,7 +193,7 @@ exports[`render correctly Homepage component should render with given state from
           15
         </span>
       </p>
-    </div>
+    </a>
   </div>
 </div>
 `;
@@ -235,7 +244,7 @@ exports[`render correctly navbar 1`] = `
         }
       }
     >
-      2021-12-21
+      2021-12-22
     </span>
   </div>
   <span
