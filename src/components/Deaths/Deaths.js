@@ -4,28 +4,42 @@ import FLECHE from '../../assets/images/fleche.png';
 import './Deaths.css';
 import MonthDeathChart from './ChartDeathsMonth';
 
+export const getDeathsDataLastDay = (lastDayData, lastDay) => {
+  const updateData = lastDayData.dates[lastDay].countries.Tunisia;
+  const todayVsYesterday = Math.round(updateData.today_vs_yesterday_deaths);
+  const yesterdayTotalDeaths = updateData.yesterday_deaths;
+  const newDeaths = updateData.today_new_deaths;
+  const totalDeaths = updateData.today_deaths;
+  return [todayVsYesterday, yesterdayTotalDeaths, newDeaths, totalDeaths];
+};
+
+export const computeGrowingRate = (dayData, previousDay, newDeaths) => {
+  const dayBeforeData = dayData.dates[previousDay].countries.Tunisia;
+  const newDeathsDayBefore = dayBeforeData.today_new_deaths;
+  let growingRate = ((newDeaths - newDeathsDayBefore) / Math.max(1, newDeathsDayBefore)) * 100;
+  growingRate = Math.floor(growingRate);
+  return growingRate;
+};
 const DeathsCases = () => {
   const toDay = new Date();
   const lastDay = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-${toDay.getDate() - 1}`;
   const previousDay = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-${toDay.getDate() - 2}`;
-  let updateData = useSelector((state) => state.latest);
-  let dayBeforeData = useSelector((state) => state.dayBefore);
+  const updateData = useSelector((state) => state.latest);
+  const dayBeforeData = useSelector((state) => state.dayBefore);
   let growingRate = 1.2;
   let totalDeaths = 20;
   let newDeaths = 20;
   let yesterdayTotalDeaths = 12;
   let todayVsYesterday = 0.5;
   if (Object.keys(updateData).length > 0) {
-    updateData = updateData.dates[lastDay].countries.Tunisia;
-    todayVsYesterday = Math.round(updateData.today_vs_yesterday_deaths);
-    yesterdayTotalDeaths = updateData.yesterday_deaths;
-    newDeaths = updateData.today_new_deaths;
-    totalDeaths = updateData.today_deaths;
+    [todayVsYesterday, yesterdayTotalDeaths,
+      newDeaths, totalDeaths] = getDeathsDataLastDay(updateData, lastDay);
     if (Object.keys(dayBeforeData).length > 0) {
-      dayBeforeData = dayBeforeData.dates[previousDay].countries.Tunisia;
+      growingRate = computeGrowingRate(dayBeforeData, previousDay, newDeaths);
+      /* dayBeforeData = dayBeforeData.dates[previousDay].countries.Tunisia;
       const newDeathsDayBefore = dayBeforeData.today_new_deaths;
       growingRate = ((newDeaths - newDeathsDayBefore) / Math.max(1, newDeathsDayBefore)) * 100;
-      growingRate = Math.floor(growingRate);
+      growingRate = Math.floor(growingRate); */
     }
   }
   const adjustHeight = () => {

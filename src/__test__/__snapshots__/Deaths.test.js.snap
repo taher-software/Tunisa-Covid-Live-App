@@ -31,7 +31,7 @@ exports[`render correctly DeathsCases component should render with given state f
   >
     DEATHS BREAKDOWN
      
-    2021-12-22
+    2021-12-23
   </p>
   <div
     className="indicator-breakdown"

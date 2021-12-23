@@ -2,17 +2,22 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
 
+export const fillDeathData = (dict) => {
+  const dataOfMonth = dict.dates;
+  const daysOfMonth = Array.from(Object.keys(dataOfMonth));
+  const newCasesData = [];
+  daysOfMonth.forEach((dayDate) => {
+    const dayData = dataOfMonth[dayDate].countries.Tunisia;
+    newCasesData.push(parseInt(dayData.today_new_deaths, 10));
+  });
+  return ([daysOfMonth, newCasesData]);
+};
+
 const MonthDeathChart = () => {
   const dataOfMonthState = useSelector((state) => state.historical);
-  let daysOfMonth = [];
-  const newCasesData = [];
+  let [daysOfMonth, newCasesData] = [[], []];
   if (Object.keys(dataOfMonthState).length > 0) {
-    const dataOfMonth = dataOfMonthState.dates;
-    daysOfMonth = Array.from(Object.keys(dataOfMonth));
-    daysOfMonth.forEach((dayDate) => {
-      const dayData = dataOfMonth[dayDate].countries.Tunisia;
-      newCasesData.push(parseInt(dayData.today_new_deaths, 10));
-    });
+    [daysOfMonth, newCasesData] = fillDeathData(dataOfMonthState);
   }
   const months = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'];

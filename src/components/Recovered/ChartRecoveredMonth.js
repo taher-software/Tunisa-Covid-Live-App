@@ -4,18 +4,33 @@ import { Line } from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
+
+const fillRecoveredData = (dict) => {
+  const dataOfMonth = dict.dates;
+  const daysOfMonth = Array.from(Object.keys(dataOfMonth));
+  const newCasesData = [];
+  daysOfMonth.forEach((dayDate) => {
+    const dayData = dataOfMonth[dayDate].countries.Tunisia;
+    newCasesData.push(parseInt(dayData.today_new_recovered, 10));
+  });
+  return ([daysOfMonth, newCasesData]);
+};
+
 const MonthRecoveredChart = () => {
   const dataOfMonthState = useSelector((state) => state.historical);
-  let daysOfMonth = [];
-  const newCasesData = [];
+  let [daysOfMonth, newCasesData] = [[], []];
   if (Object.keys(dataOfMonthState).length > 0) {
+    [daysOfMonth, newCasesData] = fillRecoveredData(dataOfMonthState);
+  }
+  /* if (Object.keys(dataOfMonthState).length > 0) {
     const dataOfMonth = dataOfMonthState.dates;
     daysOfMonth = Array.from(Object.keys(dataOfMonth));
     daysOfMonth.forEach((dayDate) => {
       const dayData = dataOfMonth[dayDate].countries.Tunisia;
       newCasesData.push(parseInt(dayData.today_new_recovered, 10));
     });
-  }
+  } */
+
   const months = ['January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'];
   const today = new Date();
