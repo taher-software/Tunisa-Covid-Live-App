@@ -13,7 +13,7 @@ const MonthOpenCasesChart = () => {
     daysOfMonth = Array.from(Object.keys(dataOfMonth));
     daysOfMonth.forEach((dayDate) => {
       const dayData = dataOfMonth[dayDate].countries.Tunisia;
-      newCasesData.push(parseInt(dayData.today_new_recovered, 10));
+      newCasesData.push(parseInt(dayData.today_new_open_cases, 10));
     });
   }
   const months = ['January', 'February', 'March', 'April', 'May', 'June',
@@ -24,7 +24,7 @@ const MonthOpenCasesChart = () => {
     labels: daysOfMonth,
     datasets: [
       {
-        label: `${months[month]} New Recovered`,
+        label: `${months[month]} New Open Cases`,
         fill: false,
         lineTension: 0.5,
         backgroundColor: 'rgba(75,192,192,1)',
