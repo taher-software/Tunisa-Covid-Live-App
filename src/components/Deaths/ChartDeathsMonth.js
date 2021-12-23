@@ -1,9 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Line } from 'react-chartjs-2';
-import { Chart, registerables } from 'chart.js';
 
-Chart.register(...registerables);
 const MonthDeathChart = () => {
   const dataOfMonthState = useSelector((state) => state.historical);
   let daysOfMonth = [];

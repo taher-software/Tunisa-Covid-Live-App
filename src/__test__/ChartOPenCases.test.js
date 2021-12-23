@@ -1,35 +1,23 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import NavBar from '../Navbar';
-import HomePage from '../components/HomePage/home';
+import MonthOpenCasesChart from '../components/OpenCases/ChartOpenCasesMonth';
 
 const mockStore = configureStore([]);
-test('render correctly navbar', () => {
-  const tree = renderer.create(
-    <Router>
-      <NavBar />
-    </Router>,
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
-});
 
-describe('render correctly Homepage component', () => {
+describe('render correctly MonthOpenCasesChart component', () => {
   let store;
   let tree;
   beforeEach(() => {
     store = mockStore({
       latest: {},
       dayBefore: {},
+      historical: {},
     });
-    store.dispatch = jest.fn();
     tree = renderer.create(
       <Provider store={store}>
-        <Router>
-          <HomePage />
-        </Router>
+        <MonthOpenCasesChart />
       </Provider>,
     );
   });

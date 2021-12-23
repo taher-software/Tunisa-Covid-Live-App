@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly navbar 1`] = `
+<header
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "rgb(226, 77, 120)",
+      "color": "#fff",
+      "display": "flex",
+      "fontFamily": "Lato, sans-serif",
+      "height": "5rem",
+      "margin": "0",
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "alignItems": "center",
+        "display": "flex",
+      }
+    }
+  >
+    <a
+      aria-current="page"
+      className="active"
+      href="/"
+      onClick={[Function]}
+      style={Object {}}
+    >
+      <img
+        alt="back"
+        src="back.png"
+        style={
+          Object {
+            "cursor": "pointer",
+          }
+        }
+      />
+    </a>
+    <span
+      style={
+        Object {
+          "fontWeight": "700",
+        }
+      }
+    >
+      2021-12-22
+    </span>
+  </div>
+  <span
+    style={
+      Object {
+        "color": "#fff",
+        "margin": "0 12.5%",
+      }
+    }
+  >
+    Tunisia national picture
+  </span>
+  <img
+    alt="microphone"
+    src="microphone.png"
+    style={
+      Object {
+        "marginRight": "7.5%",
+        "width": "5%",
+      }
+    }
+  />
+  <img
+    alt="setting"
+    src="settings.png"
+    style={
+      Object {
+        "marginRight": "2.5%",
+        "width": "5%",
+      }
+    }
+  />
+</header>
+`;

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly MonthOpenCasesChart component should render with given state from redux store 1`] = `
+<div
+  style={
+    Object {
+      "height": "200px",
+      "paddingBottom": "20px",
+    }
+  }
+>
+  <canvas
+    height={150}
+    role="img"
+    width={300}
+  />
+</div>
+`;
