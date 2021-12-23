@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tunisa-Covid-Tracker 
 
-## Available Scripts
+> In this project, we have built a mobile web application to track covid situation in Tunisia. It provides the latest update of the main indicators. Besides, it allow to breakdown each indicators and display chart evolving of each indicator within the current month.
 
-In the project directory, you can run:
+Therefore this app, can help us to protect each others and slow the spread od COVID-19 in Tunisia.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<img src='https://github.com/Taher-web-dev/Space-Travelers-Hub/blob/dev/src/assets/images/overview_animated.gif' alt='screenshot'/>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Built With
 
-### `npm run build`
+- React
+- Redux
+- CSS
+- git
+- Javascript
+- API
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Live Demo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Live Site]()
 
-### `npm run eject`
+## Video Description
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[Video Link]()
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Getting Started
 
-## Learn More
+To get a local copy up and running follow these simple example steps.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Setup
 
-### Code Splitting
+To get a local copy up and running follow these simple example steps.
+- Open terminal
+- Clone this project by the command: 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+$ git clone git@github.com:Taher-web-dev/Tunisa-Covid-Live-App.git
+```
 
-### Analyzing the Bundle Size
+- Then go to the main folder using the next command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+$ cd Tunisa-Covid-Live-App
+```
 
-### Making a Progressive Web App
+- Finally, install npm , then run <b> npm start </b> in your console.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Prerequisites
 
-### Advanced Configuration
+- IDE to edit and run the code (We use Visual Studio Code 🔥).
+- Git to versionning your work.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+### Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Web developement practioner
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+👤 **Taher Haggui**
+
+- GitHub: [@Taher-web-dev](https://github.com/Taher-web-dev)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/taher-haggui/)
+
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Original design idea by : Nelson Sakwa (https://www.behance.net/sakwadesignstudio)
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## 📝 License
+
+This project is [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) licensed.
