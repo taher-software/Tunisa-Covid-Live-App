@@ -2,7 +2,7 @@
 
 # Tunisa-Covid-Tracker 
 
-> In this project, we have built a mobile web application to track covid situation in Tunisia. It provides the latest update of the main indicators. Besides, it allows to breakdown each indicators and display chart evolving of each indicator within the current month.
+> In this project, we have built a mobile web application to track covid situation in Tunisia. It provides the latest update of the main indicators. Besides, it allows to breakdown each indicators and display chart evolving of each one within the current month.
 
 Therefore this app, can help us to protect each others and slow the spread od COVID-19 in Tunisia.
 
