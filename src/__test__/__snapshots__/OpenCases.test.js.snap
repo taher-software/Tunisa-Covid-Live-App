@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly OpenCases component should render with given state from redux store 1`] = `
+<div
+  className="confirmed-cases-page"
+>
+  <div
+    style={
+      Object {
+        "height": "200px",
+        "paddingBottom": "20px",
+      }
+    }
+  >
+    <canvas
+      height={150}
+      role="img"
+      width={300}
+    />
+  </div>
+  <p
+    className="sub-title"
+    style={
+      Object {
+        "backgroundColor": "rgb(226, 77, 120)",
+        "fontSize": "18px",
+        "margin": "0 ",
+        "padding": "2.5% 0 2.5% 2.5%",
+      }
+    }
+  >
+    OPEN CASES BREAKDOWN
+     
+    2021-12-22
+  </p>
+  <div
+    className="indicator-breakdown"
+  >
+    <div
+      className="confirmed-case-item total-cases"
+    >
+      <p
+        style={
+          Object {
+            "fontSize": "18px",
+            "fontWeight": "700",
+            "margin": "0 20% 0 5%",
+            "width": "190px",
+          }
+        }
+      >
+        Total OPEN CASES
+      </p>
+      <span
+        style={
+          Object {
+            "fontSize": "18px",
+            "fontWeight": "700",
+            "marginRight": "8%",
+            "width": "116px",
+          }
+        }
+      >
+        20
+         
+        cases
+      </span>
+      <img
+        alt="back icone"
+        src="fleche.png"
+        style={
+          Object {
+            "marginRight": "2.5%",
+          }
+        }
+      />
+    </div>
+    <div
+      className=" confirmed-case-item  yesterday-total-cases"
+    >
+      <p
+        style={
+          Object {
+            "fontSize": "18px",
+            "fontWeight": "700",
+            "margin": "0 20% 0 5%",
+            "width": "190px",
+          }
+        }
+      >
+        Yesterday Total Open Cases
+      </p>
+      <span
+        style={
+          Object {
+            "fontSize": "18px",
+            "fontWeight": "700",
+            "marginRight": "8%",
+            "width": "116px",
+          }
+        }
+      >
+        12
+         
+        cases
+      </span>
+      <img
+        alt="back icone"
+        src="fleche.png"
+        style={
+          Object {
+            "marginRight": "2.5%",
+          }
+        }
+      />
+    </div>
+    <div
+      className=" confirmed-case-item today-vs-yesterday-confirmed"
+    >
+      <p
+        style={
+          Object {
+            "fontSize": "18px",
+            "fontWeight": "700",
+            "margin": "0 20% 0 5%",
+            "width": "190px",
+          }
+        }
+      >
+        Today Vs Yesterday New Open Cases
+      </p>
+      <span
+        style={
+          Object {
+            "fontSize": "18px",
+            "fontWeight": "700",
+            "marginRight": "8%",
+            "width": "116px",
+          }
+        }
+      >
+        0.5
+      </span>
+      <img
+        alt="back icone"
+        src="fleche.png"
+        style={
+          Object {
+            "marginRight": "2.5%",
+          }
+        }
+      />
+    </div>
+    <div
+      className=" confirmed-case-item growing-cases"
+    >
+      <p
+        style={
+          Object {
+            "fontSize": "18px",
+            "fontWeight": "700",
+            "margin": "0 20% 0 5%",
+            "width": "190px",
+          }
+        }
+      >
+        New Open Cases Daily Growing Rate
+      </p>
+      <span
+        style={
+          Object {
+            "fontSize": "18px",
+            "fontWeight": "700",
+            "marginRight": "8%",
+            "width": "116px",
+          }
+        }
+      >
+        1.2
+         
+        %
+      </span>
+      <img
+        alt="back icone"
+        src="fleche.png"
+        style={
+          Object {
+            "marginRight": "2.5%",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
