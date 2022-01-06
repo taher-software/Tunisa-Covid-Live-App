@@ -21,9 +21,15 @@ export const computeGrowingRate = (dayData, previousDay, newDeaths) => {
   return growingRate;
 };
 const DeathsCases = () => {
+  const dayFormat = (day) => {
+    const rightDay = parseInt(day, 10) <= 0 ? 30 - day : day;
+    const rightFormat = rightDay < 10 ? `0${rightDay}` : rightDay;
+    return rightFormat;
+  };
+  const monthFormat = (month) => (month <= 10 ? `0${month}` : month);
   const toDay = new Date();
-  const lastDay = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-${toDay.getDate() - 1}`;
-  const previousDay = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-${toDay.getDate() - 2}`;
+  const lastDay = `${toDay.getFullYear()}-${monthFormat(toDay.getMonth() + 1)}-${dayFormat(toDay.getDate() - 1)}`;
+  const previousDay = `${toDay.getFullYear()}-${monthFormat(toDay.getMonth() + 1)}-${dayFormat(toDay.getDate() - 2)}`;
   const updateData = useSelector((state) => state.latest);
   const dayBeforeData = useSelector((state) => state.dayBefore);
   let growingRate = 1.2;

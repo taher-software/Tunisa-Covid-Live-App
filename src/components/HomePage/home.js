@@ -7,8 +7,14 @@ import './home.css';
 
 const HomePage = () => {
   const toDay = new Date();
-  const lastDay = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-${toDay.getDate() - 1}`;
-  const previousDay = `${toDay.getFullYear()}-${toDay.getMonth() + 1}-${toDay.getDate() - 2}`;
+  const dayFormat = (day) => {
+    const rightDay = parseInt(day, 10) <= 0 ? 30 - day : day;
+    const rightFormat = rightDay < 10 ? `0${rightDay}` : rightDay;
+    return rightFormat;
+  };
+  const monthFormat = (month) => (month <= 10 ? `0${month}` : month);
+  const lastDay = `${toDay.getFullYear()}-${monthFormat(toDay.getMonth() + 1)}-${dayFormat(toDay.getDate() - 1)}`;
+  const previousDay = `${toDay.getFullYear()}-${monthFormat(toDay.getMonth() + 1)}-${dayFormat(toDay.getDate() - 2)}`;
   let updateData = useSelector((state) => state.latest);
   let dayBeforeData = useSelector((state) => state.dayBefore);
   const [growingRate, setGrowingrate] = useState(undefined);
@@ -18,21 +24,25 @@ const HomePage = () => {
   let recovered = 30;
   let openCases = 15;
   if (Object.keys(updateData).length > 0) {
-    updateData = updateData.dates[lastDay].countries.Tunisia;
-    if (confirmedCases < 0) {
-      setConfirmedCases(updateData.today_new_confirmed);
-    }
-    deaths = updateData.today_new_deaths;
-    recovered = updateData.today_new_recovered;
-    openCases = updateData.today_new_open_cases;
-    if (Object.keys(dayBeforeData).length > 0) {
-      if ((growingRate === undefined) || (render < 2)) {
-        dayBeforeData = dayBeforeData.dates[previousDay].countries.Tunisia;
-        const confirmedCasesDayBefore = dayBeforeData.today_new_confirmed;
-        const rate = ((confirmedCases - confirmedCasesDayBefore) / confirmedCasesDayBefore) * 100;
-        setGrowingrate(Math.floor(rate));
-        setRender(render + 1);
+    try {
+      updateData = updateData.dates[lastDay].countries.Tunisia;
+      if (confirmedCases < 0) {
+        setConfirmedCases(updateData.today_new_confirmed);
       }
+      deaths = updateData.today_new_deaths;
+      recovered = updateData.today_new_recovered;
+      openCases = updateData.today_new_open_cases;
+      if (Object.keys(dayBeforeData).length > 0) {
+        if ((growingRate === undefined) || (render < 2)) {
+          dayBeforeData = dayBeforeData.dates[previousDay].countries.Tunisia;
+          const confirmedCasesDayBefore = dayBeforeData.today_new_confirmed;
+          const rate = ((confirmedCases - confirmedCasesDayBefore) / confirmedCasesDayBefore) * 100;
+          setGrowingrate(Math.floor(rate));
+          setRender(render + 1);
+        }
+      }
+    } catch {
+      updateData = useSelector((state) => state.latest);
     }
   }
   const adjustHeight = () => {
@@ -42,6 +52,7 @@ const HomePage = () => {
     const indicators = document.querySelector('.key-indicators');
     indicators.style.height = `${home - titleHeight - subtitleHeight}px`;
   };
+  useEffect(() => adjustHeight(), []);
   const situationALertColor = (growingRate, confirmedCases) => {
     const alertIcone = document.querySelector('.title-board');
     if (Object.keys(updateData).length > 0) {
@@ -58,13 +69,13 @@ const HomePage = () => {
     const alertIcone = document.querySelector('.title-board');
     alertIcone.style.backgroundColor = 'rgb(247, 90, 146)';
   };
-  useEffect(() => adjustHeight(), []);
   useEffect(() => {
     setInterval(situationALertColor, 1000, growingRate, confirmedCases);
     return () => situationNeutralColor();
   },
   [render]);
   useEffect(() => setInterval(situationNeutralColor, 4000, growingRate, confirmedCases), [render]);
+
   return (
     <div className="home-page">
       <div className="title-board">
